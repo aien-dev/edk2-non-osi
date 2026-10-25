@@ -6,8 +6,8 @@ Shared rules: read https://www.aienos.com/agents/RULES.md first. This file adds 
 ## Scope
 
 - Applies to the whole repository. This is a fork, not an AIEN project.
-- AIEN's own commit is exactly one: `ac81907` docs: README refresh for new readers (#1), which adds 4 lines (the fork note) to `Readme.md`. Every other commit is upstream history. `git diff <upstream master> HEAD` shows only `Readme.md`.
-- Changes accepted here: AIEN documentation (the fork note at the top of `Readme.md`, this file) and fast-forward syncs from `tianocore/edk2-non-osi` `master`.
+- AIEN's own commits are documentation only: `ac81907` docs: README refresh for new readers (#1), which adds 4 lines (the fork note) to `Readme.md`, and `915aaec` docs: add AGENTS.md for AI coding agents (merged in #2), which adds this file. Every other commit is upstream history. `git diff <upstream master> HEAD` shows only `Readme.md` and `AGENTS.md`.
+- Changes accepted here: AIEN documentation (the fork note at the top of `Readme.md`, this file) and syncs from `tianocore/edk2-non-osi` `master`. Because the fork carries its own commits, a sync is a merge of upstream `master`, not a fast-forward.
 - Must not change: any file under `Drivers/`, `Emulator/`, `Platform/`, `Silicon/`, `Maintainers.txt`, any `License.txt`, or the upstream part of `Readme.md`. Do not add, rebuild or replace binaries.
 - aien-dev/rpi5-uefi pins this repository at commit `1f4d784` as its `edk2-non-osi` submodule. That commit must stay reachable.
 
@@ -26,7 +26,7 @@ Check that the fork still differs from upstream only by the AIEN note:
 
 ```bash
 git fetch https://github.com/tianocore/edk2-non-osi master
-git diff --stat FETCH_HEAD HEAD          # expect: Readme.md only
+git diff --stat FETCH_HEAD HEAD          # expect: AGENTS.md and Readme.md only
 git rev-list --count HEAD..FETCH_HEAD    # upstream commits not yet synced
 ```
 
